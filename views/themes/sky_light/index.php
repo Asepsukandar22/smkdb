@@ -234,11 +234,11 @@
 			<div class="container copyright">
 				<div class="row pt-1 pb-1">
 					<div class="col-md-6 col-xs-12 text-md-left text-center">
-						<?=copyright(2020, base_url(), __session('school_name'))?>
+						<?=copyright(2023, base_url(), __session('school_name'))?>
 					</div>
-					<div class="col-md-6 col-xs-12 text-md-right text-center">
+					<!-- <div class="col-md-6 col-xs-12 text-md-right text-center">
 						Powered by <a href="http://sekolahku.web.id">sekolahku.web.id</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Mar 2024 pada 07.13
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 7.4.27
+-- Waktu pembuatan: 28 Mar 2024 pada 11.26
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,14 @@ CREATE TABLE `academic_years` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `academic_years`
+--
+
+INSERT INTO `academic_years` (`id`, `academic_year`, `semester`, `current_semester`, `admission_semester`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
+(1, '2024-2025', 'odd', 'false', 'false', '2024-03-28 16:53:53', '2024-03-28 09:53:59', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -67,7 +74,7 @@ CREATE TABLE `achievements` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -90,7 +97,7 @@ CREATE TABLE `admission_phases` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -113,7 +120,7 @@ CREATE TABLE `admission_quotas` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -136,7 +143,7 @@ CREATE TABLE `albums` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -157,7 +164,7 @@ CREATE TABLE `answers` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -180,7 +187,7 @@ CREATE TABLE `categories` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `categories`
@@ -210,7 +217,17 @@ CREATE TABLE `class_groups` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `class_groups`
+--
+
+INSERT INTO `class_groups` (`id`, `class_group`, `sub_class_group`, `major_id`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
+(1, 'XII', 'RPL', 1, '2024-03-28 16:52:41', '2024-03-28 09:52:41', NULL, NULL, 1, 0, 0, 0, 'false'),
+(2, 'XII', 'AKL', 2, '2024-03-28 16:52:50', '2024-03-28 09:52:50', NULL, NULL, 1, 0, 0, 0, 'false'),
+(3, 'XII', 'TBSM', 3, '2024-03-28 16:53:01', '2024-03-28 09:53:01', NULL, NULL, 1, 0, 0, 0, 'false'),
+(4, 'XII', 'ACP', 1, '2024-03-28 16:53:09', '2024-03-28 09:53:09', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -232,7 +249,17 @@ CREATE TABLE `class_group_settings` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `class_group_settings`
+--
+
+INSERT INTO `class_group_settings` (`id`, `academic_year_id`, `class_group_id`, `employee_id`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
+(1, 1, 1, 2, '2024-03-28 16:54:42', '2024-03-28 09:54:42', NULL, NULL, 1, 0, 0, 0, 'false'),
+(2, 1, 2, 1, '2024-03-28 16:54:58', '2024-03-28 09:54:58', NULL, NULL, 1, 0, 0, 0, 'false'),
+(3, 1, 3, 3, '2024-03-28 16:55:05', '2024-03-28 09:55:05', NULL, NULL, 1, 0, 0, 0, 'false'),
+(4, 1, 4, 4, '2024-03-28 16:55:10', '2024-03-28 09:55:10', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -254,7 +281,74 @@ CREATE TABLE `class_group_students` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `class_group_students`
+--
+
+INSERT INTO `class_group_students` (`id`, `class_group_setting_id`, `student_id`, `is_class_manager`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
+(1, 2, 1, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(2, 2, 2, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(3, 2, 3, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(4, 2, 4, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(5, 2, 5, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(6, 2, 6, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(7, 2, 7, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(8, 2, 8, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(9, 2, 9, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(10, 2, 10, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(11, 2, 11, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(12, 2, 12, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(13, 2, 13, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(14, 2, 14, 'true', '2024-03-28 16:56:13', '2024-03-28 09:57:44', NULL, NULL, 1, 1, 0, 0, 'false'),
+(15, 2, 15, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(16, 2, 16, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(17, 2, 17, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(18, 2, 18, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(19, 2, 19, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(20, 2, 20, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(21, 2, 21, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(22, 2, 22, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(23, 2, 23, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(24, 2, 24, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(25, 2, 25, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(26, 2, 26, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(27, 2, 27, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(28, 2, 28, 'false', '2024-03-28 16:56:13', '2024-03-28 09:56:13', NULL, NULL, 1, 0, 0, 0, 'false'),
+(29, 1, 29, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(30, 1, 30, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(31, 1, 31, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(32, 1, 32, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(33, 1, 33, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(34, 1, 34, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(35, 1, 35, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(36, 1, 36, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(37, 1, 37, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(38, 1, 38, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(39, 1, 39, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(40, 1, 40, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(41, 1, 41, 'true', '2024-03-28 16:56:48', '2024-03-28 09:57:28', NULL, NULL, 1, 1, 0, 0, 'false'),
+(42, 1, 42, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(43, 1, 43, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(44, 1, 44, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(45, 1, 45, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(46, 1, 46, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(47, 1, 47, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(48, 1, 48, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(49, 1, 49, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(50, 1, 50, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(51, 1, 51, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(52, 1, 52, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(53, 1, 53, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(54, 1, 54, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(55, 1, 55, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(56, 1, 56, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(57, 1, 57, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(58, 1, 58, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(59, 1, 59, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(60, 1, 60, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false'),
+(61, 1, 61, 'false', '2024-03-28 16:56:48', '2024-03-28 09:56:48', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -285,7 +379,7 @@ CREATE TABLE `comments` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -350,7 +444,17 @@ CREATE TABLE `employees` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `employees`
+--
+
+INSERT INTO `employees` (`id`, `assignment_letter_number`, `assignment_letter_date`, `assignment_start_date`, `parent_school_status`, `full_name`, `gender`, `nik`, `birth_place`, `birth_date`, `mother_name`, `street_address`, `rt`, `rw`, `sub_village`, `village`, `sub_district`, `district`, `postal_code`, `religion_id`, `marriage_status_id`, `spouse_name`, `spouse_employment_id`, `citizenship`, `country`, `npwp`, `employment_status_id`, `nip`, `niy`, `nuptk`, `employment_type_id`, `decree_appointment`, `appointment_start_date`, `institution_lifter_id`, `decree_cpns`, `pns_start_date`, `rank_id`, `salary_source_id`, `headmaster_license`, `laboratory_skill_id`, `special_need_id`, `braille_skills`, `sign_language_skills`, `phone`, `mobile_phone`, `email`, `photo`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
+(1, NULL, NULL, NULL, 'true', 'MAULY NURKHALIMA, S.Ak', 'F', '12345', 'SUKABUMI', '2024-03-27', NULL, 'CIMAJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 'WNI', NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, 0, 'false', 0, 0, 'false', 'false', NULL, NULL, '12345@smkdb.sch.id', NULL, '2024-03-28 16:50:21', '2024-03-28 09:50:21', NULL, NULL, 1, 0, 0, 0, 'false'),
+(2, NULL, NULL, NULL, 'true', 'KHUDAENI MUPLIHAN,. M.Pd', 'M', '12346', 'SUKABUMI', '2024-03-27', NULL, 'CIMAJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 'WNI', NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, 0, 'false', 0, 0, 'false', 'false', NULL, NULL, '12346@smkdb.sch.id', NULL, '2024-03-28 16:50:22', '2024-03-28 09:50:22', NULL, NULL, 1, 0, 0, 0, 'false'),
+(3, NULL, NULL, NULL, 'true', 'UJANG DERI, S.Pd.I', 'M', '12347', 'SUKABUMI', '2024-03-28', NULL, 'CIMAJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 'WNI', NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, 0, 'false', 0, 0, 'false', 'false', NULL, NULL, '12347@smkdb.sch.id', NULL, '2024-03-28 16:50:22', '2024-03-28 09:50:22', NULL, NULL, 1, 0, 0, 0, 'false'),
+(4, NULL, NULL, NULL, 'true', 'MARYAM JAMILAH, M.Pd', 'F', '12348', 'SUKABUMI', '2024-03-29', NULL, 'CIMAJA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 'WNI', NULL, NULL, 0, NULL, NULL, NULL, 0, NULL, NULL, 0, NULL, NULL, 0, 0, 'false', 0, 0, 'false', 'false', NULL, NULL, '12348@smkdb.sch.id', NULL, '2024-03-28 16:50:22', '2024-03-28 09:50:22', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -379,7 +483,7 @@ CREATE TABLE `files` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -400,7 +504,7 @@ CREATE TABLE `image_sliders` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `image_sliders`
@@ -432,14 +536,14 @@ CREATE TABLE `links` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `links`
 --
 
 INSERT INTO `links` (`id`, `link_title`, `link_url`, `link_target`, `link_image`, `link_type`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
-(1, 'CMS Sekolahku', 'https://sekolahku.web.id', '_blank', NULL, 'link', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
+(1, 'WA. Sekolah', 'https://wa.me/6289507057277?text=Selamat Datang , Disekolah Kami ', '_blank', NULL, 'link', '2023-01-15 21:23:22', '2024-03-28 09:46:48', NULL, NULL, 0, 1, 0, 0, 'false'),
 (2, 'CMS Sekolahku', 'https://sekolahku.web.id', '_blank', '1.png', 'banner', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
@@ -462,7 +566,7 @@ CREATE TABLE `login_attempts` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -484,7 +588,16 @@ CREATE TABLE `majors` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `majors`
+--
+
+INSERT INTO `majors` (`id`, `major_name`, `major_short_name`, `is_active`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
+(1, 'Rekayasa Perangkat Lunak', 'RPL', 'true', '2024-03-28 16:51:34', '2024-03-28 09:51:34', NULL, NULL, 1, 0, 0, 0, 'false'),
+(2, 'Akuntansi dan Keuangan Lembaga', 'AKL', 'true', '2024-03-28 16:51:58', '2024-03-28 09:51:58', NULL, NULL, 1, 0, 0, 0, 'false'),
+(3, 'Teknik dan Bisnis Sepeda Motor', 'TBSM', 'true', '2024-03-28 16:52:20', '2024-03-28 09:52:20', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -509,7 +622,7 @@ CREATE TABLE `menus` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `menus`
@@ -532,8 +645,9 @@ INSERT INTO `menus` (`id`, `menu_title`, `menu_url`, `menu_target`, `menu_type`,
 (14, 'Direktori Peserta Didik', 'direktori-peserta-didik', '_self', 'modules', 12, 3, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (15, 'Direktori Guru dan Tenaga Kependidikan', 'direktori-guru-dan-tenaga-kependidikan', '_self', 'modules', 12, 2, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (16, 'Pendaftaran Alumni', 'pendaftaran-alumni', '_self', 'modules', 0, 4, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
-(17, 'Profil', 'read/2/profil', '_self', 'pages', 0, 1, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
-(18, 'Visi dan Misi', 'read/3/visi-dan-misi', '_self', 'pages', 0, 1, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false');
+(21, 'Tentang', '#', '_self', 'links', 0, 1, '2024-03-28 16:36:12', '2024-03-28 09:36:33', NULL, NULL, 1, 0, 0, 0, 'false'),
+(22, 'Profil', 'read/2/profil', '_self', 'pages', 21, 1, '2024-03-28 16:36:25', '2024-03-28 09:36:33', NULL, NULL, 1, 0, 0, 0, 'false'),
+(23, 'Visi dan Misi', 'read/3/visi-dan-misi', '_self', 'pages', 21, 2, '2024-03-28 16:36:25', '2024-03-28 09:36:33', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -555,7 +669,7 @@ CREATE TABLE `modules` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `modules`
@@ -592,7 +706,7 @@ CREATE TABLE `options` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `options`
@@ -788,7 +902,7 @@ CREATE TABLE `photos` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -809,7 +923,7 @@ CREATE TABLE `pollings` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -840,7 +954,7 @@ CREATE TABLE `posts` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `posts`
@@ -848,8 +962,8 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `post_title`, `post_content`, `post_image`, `post_author`, `post_categories`, `post_type`, `post_status`, `post_visibility`, `post_comment_status`, `post_slug`, `post_tags`, `post_counter`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
 (1, '', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', 'headmaster_photo.png', 0, '', 'opening_speech', 'publish', 'public', 'open', '', '', 0, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
-(2, 'Profil', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', NULL, 1, '+1+', 'page', 'publish', 'public', 'open', 'profil', 'berita, pengumuman, sekilas-info', 6, '2023-01-15 21:23:22', '2024-03-28 04:03:01', NULL, NULL, 0, 0, 0, 0, 'false'),
-(3, 'Visi dan Misi', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', NULL, 1, '+1+', 'page', 'publish', 'public', 'open', 'visi-dan-misi', 'berita, pengumuman, sekilas-info', 5, '2023-01-15 21:23:22', '2024-03-28 04:03:12', NULL, NULL, 0, 0, 0, 0, 'false'),
+(2, 'Profil', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', NULL, 1, '+1+', 'page', 'publish', 'public', 'open', 'profil', 'berita, pengumuman, sekilas-info', 13, '2023-01-15 21:23:22', '2024-03-28 09:37:40', NULL, NULL, 0, 0, 0, 0, 'false'),
+(3, 'Visi dan Misi', '<p><em><strong><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">&ldquo; Terselenggaranya sekolah yang memenuhi tuntutan dunia usaha dan dunia industri berdaya saing internasional &rdquo;</span></strong></em></p>\n<p>&nbsp;</p>\n<ul>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Menyiapkan lulusan yang berkarakter, dan produktif dalam bidangnya.</span></li>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Menumbuhkan budaya mutu bagi semua warga sekolah.</span></li>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Mewujudkan delapan standar nasional pendidikan.</span></li>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Menjunjung tinggi profesionalisme pendidik dan tenaga kependidikan.</span></li>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Menciptakan</span> <span class=\"OYPEnA text-decoration-none text-strikethrough-none\">lingkungan</span> <span class=\"OYPEnA text-decoration-none text-strikethrough-none\">sekolah</span> <span class=\"OYPEnA text-decoration-none text-strikethrough-none\">yang bersih,indah,nyaman</span> <span class=\"OYPEnA text-decoration-none text-strikethrough-none\">dan sehat sesuai manajemen lingkungan hijau (green school).</span></li>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Melaksanakan kemitraan dengan berbagai stakeholder.</span></li>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Melaksanakan sistem informasi manajemen sekolah.</span></li>\n<li><span class=\"OYPEnA text-decoration-none text-strikethrough-none\">Melaksanakan teaching factory dan business center</span></li>\n</ul>', NULL, 1, '+1+', 'page', 'publish', 'public', 'close', 'visi-dan-misi', 'berita, pengumuman, sekilas-info', 10, '2023-01-15 21:23:22', '2024-03-28 09:59:31', NULL, NULL, 0, 1, 0, 0, 'false'),
 (4, 'Sample Post 1', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', 'post_image.png', 1, '+1+', 'post', 'publish', 'public', 'open', 'sample-post-1', 'berita, pengumuman, sekilas-info', 5, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (5, 'Sample Post 2', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', 'post_image.png', 1, '+1+', 'post', 'publish', 'public', 'open', 'sample-post-2', 'berita, pengumuman, sekilas-info', 1, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (6, 'Sample Post 3', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', 'post_image.png', 1, '+1+', 'post', 'publish', 'public', 'open', 'sample-post-3', 'berita, pengumuman, sekilas-info', 1, '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
@@ -875,7 +989,7 @@ CREATE TABLE `questions` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -896,7 +1010,7 @@ CREATE TABLE `quotes` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `quotes`
@@ -929,7 +1043,7 @@ CREATE TABLE `scholarships` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -954,7 +1068,7 @@ CREATE TABLE `settings` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `settings`
@@ -1016,11 +1130,11 @@ INSERT INTO `settings` (`id`, `setting_group`, `setting_variable`, `setting_valu
 (53, 'discussion', 'comment_registration', NULL, 'false', 'public', 'Pengguna harus terdaftar dan login untuk komentar', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (54, 'discussion', 'comment_blacklist', NULL, 'kampret', 'public', 'Komentar disaring', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (55, 'discussion', 'comment_order', NULL, 'asc', 'public', 'Urutan Komentar', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
-(56, 'social_account', 'facebook', 'SMK Doa Bangsa', '', 'public', 'Facebook', '2023-01-15 21:23:22', '2024-03-28 03:50:58', NULL, NULL, 0, 1, 0, 0, 'false'),
+(56, 'social_account', 'facebook', 'https://www.facebook.com/smkdb82?mibextid=ZbWKwL', '', 'public', 'Facebook', '2023-01-15 21:23:22', '2024-03-28 09:38:53', NULL, NULL, 0, 1, 0, 0, 'false'),
 (57, 'social_account', 'twitter', NULL, '', 'public', 'Twitter', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (58, 'social_account', 'linked_in', NULL, '', 'public', 'Linked In', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
-(59, 'social_account', 'youtube', 'SMK DOA BANGSA', '', 'public', 'Youtube', '2023-01-15 21:23:22', '2024-03-28 03:51:26', NULL, NULL, 0, 1, 0, 0, 'false'),
-(60, 'social_account', 'instagram', '@smk_doabangsa', '', 'public', 'Instagram', '2023-01-15 21:23:22', '2024-03-28 03:51:15', NULL, NULL, 0, 1, 0, 0, 'false'),
+(59, 'social_account', 'youtube', 'https://youtube.com/@smkdoabangsa5828?si=Oyr3mW7jSbo28FPQ', '', 'public', 'Youtube', '2023-01-15 21:23:22', '2024-03-28 09:39:17', NULL, NULL, 0, 1, 0, 0, 'false'),
+(60, 'social_account', 'instagram', 'https://www.instagram.com/smk_doabangsa?igsh=MjVoNXFpb2psMHls', '', 'public', 'Instagram', '2023-01-15 21:23:22', '2024-03-28 09:39:06', NULL, NULL, 0, 1, 0, 0, 'false'),
 (61, 'mail_server', 'smtp_host', NULL, '', 'private', 'SMTP Server Address', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (62, 'mail_server', 'smtp_user', NULL, '', 'private', 'SMTP Username', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (63, 'mail_server', 'smtp_pass', NULL, '', 'private', 'SMTP Password', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
@@ -1028,13 +1142,13 @@ INSERT INTO `settings` (`id`, `setting_group`, `setting_variable`, `setting_valu
 (65, 'school_profile', 'npsn', '69726062', '123', 'public', 'NPSN', '2023-01-15 21:23:22', '2024-03-28 03:46:33', NULL, NULL, 0, 1, 0, 0, 'false'),
 (66, 'school_profile', 'school_name', 'SMK Doa Bangsa', 'SMA Negeri 9 Kuningan', 'public', 'Nama Sekolah', '2023-01-15 21:23:22', '2024-03-28 03:47:40', NULL, NULL, 0, 1, 0, 0, 'false'),
 (67, 'school_profile', 'headmaster', 'Nanda Perdana, S.Pd', 'Anton Sofyan', 'public', 'Kepala Sekolah', '2023-01-15 21:23:22', '2024-03-28 03:45:23', NULL, NULL, 0, 1, 0, 0, 'false'),
-(68, 'school_profile', 'headmaster_photo', NULL, 'headmaster_photo.png', 'public', 'Photo Kepala Sekolah', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
+(68, 'school_profile', 'headmaster_photo', '44440c6369cf8f48dd9afaacfa5beab4.png', 'headmaster_photo.png', 'public', 'Photo Kepala Sekolah', '2023-01-15 21:23:22', '2024-03-28 09:31:54', NULL, NULL, 0, 0, 0, 0, 'false'),
 (69, 'school_profile', 'school_level', NULL, '3', 'public', 'Bentuk Pendidikan', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (70, 'school_profile', 'school_status', '2', '1', 'public', 'Status Sekolah', '2023-01-15 21:23:22', '2024-03-28 03:47:47', NULL, NULL, 0, 1, 0, 0, 'false'),
 (71, 'school_profile', 'ownership_status', NULL, '1', 'public', 'Status Kepemilikan', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (72, 'school_profile', 'decree_operating_permit', '421.5/KEP-775/DISDIK', '-', 'public', 'SK Izin Operasional', '2023-01-15 21:23:22', '2024-03-28 03:43:29', NULL, NULL, 0, 1, 0, 0, 'false'),
 (73, 'school_profile', 'decree_operating_permit_date', '05-07-2012', '2023-01-15', 'public', 'Tanggal SK Izin Operasional', '2023-01-15 21:23:22', '2024-03-28 03:43:51', NULL, NULL, 0, 1, 0, 0, 'false'),
-(74, 'school_profile', 'tagline', 'Jujur. Ikhlas. Amanah', 'Where Tomorrow\'s Leaders Come Together', 'public', 'Slogan', '2023-01-15 21:23:22', '2024-03-28 03:48:46', NULL, NULL, 0, 1, 0, 0, 'false'),
+(74, 'school_profile', 'tagline', 'JUJUR. IKHLAS. AMANAH', 'Where Tomorrow\'s Leaders Come Together', 'public', 'Slogan', '2023-01-15 21:23:22', '2024-03-28 09:58:39', NULL, NULL, 0, 1, 0, 0, 'false'),
 (75, 'school_profile', 'rt', NULL, '12', 'public', 'RT', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (76, 'school_profile', 'rw', NULL, '06', 'public', 'RW', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (77, 'school_profile', 'sub_village', 'Citepus', 'Wage', 'public', 'Dusun', '2023-01-15 21:23:22', '2024-03-28 03:48:27', NULL, NULL, 0, 1, 0, 0, 'false'),
@@ -1047,7 +1161,7 @@ INSERT INTO `settings` (`id`, `setting_group`, `setting_variable`, `setting_valu
 (84, 'school_profile', 'fax', '02666446150', '0232123456', 'public', 'Fax', '2023-01-15 21:23:22', '2024-03-28 03:45:11', NULL, NULL, 0, 1, 0, 0, 'false'),
 (85, 'school_profile', 'email', 'smkdoabangsa@gmail.com', 'info@sman9kuningan.sch.id', 'public', 'Email', '2023-01-15 21:23:22', '2024-03-28 03:44:33', NULL, NULL, 0, 1, 0, 0, 'false'),
 (86, 'school_profile', 'website', 'http://www.smkdb.sch.id', 'http://www.sman9kuningan.sch.id', 'public', 'Website', '2023-01-15 21:23:22', '2024-03-28 03:49:22', NULL, NULL, 0, 1, 0, 0, 'false'),
-(87, 'school_profile', 'logo', 'e53ffda226b1c89aa4c8705617ce50d6.jpeg', 'logo.png', 'public', 'Logo', '2023-01-15 21:23:22', '2024-03-28 03:59:54', NULL, NULL, 0, 0, 0, 0, 'false'),
+(87, 'school_profile', 'logo', '0ca660ebe5161af68e141969258c2b0e.png', 'logo.png', 'public', 'Logo', '2023-01-15 21:23:22', '2024-03-28 09:32:04', NULL, NULL, 0, 0, 0, 0, 'false'),
 (88, 'admission', 'admission_status', NULL, 'open', 'public', 'Status Penerimaan Peserta Didik Baru', '2023-01-15 21:23:22', '2023-01-15 14:23:22', NULL, NULL, 0, 0, 0, 0, 'false'),
 (89, 'admission', 'admission_year', '2024', '2023', 'public', 'Tahun Penerimaan Peserta Didik Baru', '2023-01-15 21:23:22', '2024-03-28 03:56:30', NULL, NULL, 0, 1, 0, 0, 'false'),
 (90, 'admission', 'admission_start_date', '2024-02-01', '2022-01-01', 'public', 'Tanggal Mulai PPDB', '2023-01-15 21:23:22', '2024-03-28 03:56:04', NULL, NULL, 0, 1, 0, 0, 'false'),
@@ -1151,7 +1265,95 @@ CREATE TABLE `students` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `students`
+--
+
+INSERT INTO `students` (`id`, `major_id`, `first_choice_id`, `second_choice_id`, `registration_number`, `admission_exam_number`, `selection_result`, `admission_phase_id`, `admission_type_id`, `photo`, `achievement`, `is_student`, `is_prospective_student`, `is_alumni`, `is_transfer`, `re_registration`, `start_date`, `identity_number`, `nisn`, `nik`, `prev_exam_number`, `prev_diploma_number`, `paud`, `tk`, `skhun`, `prev_school_name`, `prev_school_address`, `hobby`, `ambition`, `full_name`, `gender`, `birth_place`, `birth_date`, `religion_id`, `special_need_id`, `street_address`, `rt`, `rw`, `sub_village`, `village`, `sub_district`, `district`, `postal_code`, `residence_id`, `transportation_id`, `phone`, `mobile_phone`, `email`, `sktm`, `kks`, `kps`, `kip`, `kis`, `citizenship`, `country`, `father_name`, `father_birth_year`, `father_education_id`, `father_employment_id`, `father_monthly_income_id`, `father_special_need_id`, `mother_name`, `mother_birth_year`, `mother_education_id`, `mother_employment_id`, `mother_monthly_income_id`, `mother_special_need_id`, `guardian_name`, `guardian_birth_year`, `guardian_education_id`, `guardian_employment_id`, `guardian_monthly_income_id`, `mileage`, `traveling_time`, `height`, `weight`, `sibling_number`, `student_status_id`, `end_date`, `reason`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
+(1, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202044', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AL KAROMI D HARTONO', 'M', 'SUKABUMI', '2005-11-24', 0, 0, 'Kp. Babakan Rt.010/Rw.007', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202044@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(2, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202002', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ASEP YUSUP MULYANA', 'M', 'CIANJUR', '2006-10-26', 0, 0, 'Palabuhanratu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202002@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(3, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202004', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DE ASTRI ANANTA', 'F', 'SUKABUMI', '2005-05-05', 0, 0, 'Tegal Nyampai', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202004@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(4, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202005', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DEDE SANI SITI NUROH', 'F', 'SUKABUMI', '2006-01-03', 0, 0, 'Kp. Mariuk', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202005@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(5, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202006', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DELIANA SEPTIANI DAVID', 'F', 'SUKABUMI', '2005-09-28', 0, 0, 'Kp Selakopi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202006@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(6, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202007', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DEWI INDRIANI', 'F', 'SUKABUMI', '2005-01-19', 0, 0, 'Kp.Sirnajaya', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202007@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(7, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202008', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DINI FEBRIANI', 'F', 'SUKABUMI', '2007-02-08', 0, 0, 'Kp. Jayanti', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202008@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(8, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202013', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'LUNA SITI NURRAHMAN', 'F', 'SUKABUMI', '2005-12-28', 0, 0, 'Jl Pelita', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202013@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(9, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '2122012036', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'M. SYAHRUL ANWAR', 'M', 'SUKABUMI', '2006-04-16', 0, 0, 'Kp. Cikadu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '2122012036@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(10, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MARWAH', 'F', 'SUKABUMI', '2006-12-02', 0, 0, 'Kp. Cibogo Ii', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202014@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(11, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202015', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MELA NOVALIA', 'F', 'JAKARTA', '2005-11-04', 0, 0, 'Kp. Cidahon', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202015@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(12, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202016', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NABILA FAUZIAH', 'F', 'SUKABUMI', '2006-01-18', 0, 0, 'Kp. Rancareunghas', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202016@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(13, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202017', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NAOMI SALWA SAHRIYANI', 'F', 'SUKABUMI', '2008-05-04', 0, 0, 'Kp. Jayanti', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202017@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(14, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202018', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NAZILA APRILIA LISNIAWAN', 'F', 'SUKABUMI', '2006-04-09', 0, 0, 'Kp. Mariuk', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202018@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(15, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NELI NURAENI', 'F', 'SUKABUMI', '2005-08-19', 0, 0, 'Sukarame', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202019@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(16, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NENG SIFA YULI HARYANI', 'F', 'SUKABUMI', '2006-07-27', 0, 0, 'Gg.  Empang', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202020@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(17, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NENSA ANGGRAINI', 'F', 'SUKABUMI', '2005-05-01', 0, 0, 'Kp. Babakan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202021@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(18, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202023', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PADLI RAMDANI', 'M', 'SUKABUMI', '2005-10-23', 0, 0, 'Ciranji', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202023@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(19, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202024', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PUTRI KARUNISA RAMADANI', 'F', 'SUKABUMI', '2006-10-21', 0, 0, 'Cijambe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202024@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(20, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202025', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RAFLI TAUPIK FADILAH', 'M', 'SUKABUMI', '2005-12-07', 0, 0, 'Sunter', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202025@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(21, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202026', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RENI NURAENI', 'F', 'TASIKMALAYA', '2004-10-22', 0, 0, 'Pasangrahan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202026@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(22, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202028', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RIKI', 'M', 'SUKABUMI', '2004-11-11', 0, 0, 'Tegal Nyampay', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202028@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(23, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202029', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RINI SYAHRINI', 'F', 'SUKABUMI', '2005-06-19', 0, 0, 'Kp Babakan Lebu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202029@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(24, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202031', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SITI NURYANI', 'F', 'SUKABUMI', '2006-02-26', 0, 0, 'Kp. Cibuluh', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202031@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(25, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202032', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'TRIANI AMANDA YUSMAN', 'F', 'SUKABUMI', '2006-08-28', 0, 0, 'Kp. Mariuk', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202032@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(26, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202033', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WINNY CHRISS ADE LINA', 'F', 'SUKABUMI', '2005-08-31', 0, 0, 'Kuta Mekar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202033@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(27, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202034', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'YUNI MEYLANI', 'F', 'SUKABUMI', '2004-05-08', 0, 0, 'Kp.Citepus Tengah', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202034@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(28, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212202035', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ZAHRA SALSA NABILA', 'F', 'SUKABUMI', '2005-11-20', 0, 0, 'Kp.Rancareunghas', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212202035@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:55:36', '2024-03-28 09:55:36', NULL, NULL, 1, 0, 0, 0, 'false'),
+(29, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ADEN JUHANDI AGUSTIAN', 'M', 'SUKABUMI', '2003-08-22', 0, 0, 'Kp. Babakanpendeuy', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201014@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(30, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201015', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AGIL', 'M', 'SUKABUMI', '2006-03-30', 0, 0, 'Kp.Panyairan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201015@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(31, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201016', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ANANDA RIPALDI', 'M', 'SUKABUMI', '2004-12-01', 0, 0, 'Kp.Bagbagan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201016@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(32, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ARIEL ANWARI RAHMANDANI', 'M', 'SUKABUMI', '2006-01-17', 0, 0, 'Pasir Badak', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201019@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(33, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201018', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ARIYANA MAULANA', 'M', 'SUKABUMI', '2006-03-07', 0, 0, 'BTN RAWAKALONG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201018@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(34, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DEDE ERWIN', 'M', 'SUKABUMI', '2005-06-01', 0, 0, 'Kp.Pamoyanan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201020@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(35, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DEDE WALID', 'M', 'SUKABUMI', '2006-05-24', 0, 0, 'Kp.Bagbagan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201021@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(36, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201022', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DENIS ANDREA PUTRA', 'M', 'SUKABUMI', '2006-06-09', 0, 0, 'Kp Cinyocok', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201022@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(37, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201023', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'EVI PIANI', 'F', 'SUKABUMI', '2006-01-28', 0, 0, 'Kp.Panyairan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201023@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(38, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201024', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'FIKI ARISKI', 'M', 'SUKABUMI', '2005-09-11', 0, 0, 'KP.RIUNG GUNUNG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201024@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(39, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201026', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'GIO PERMANA', 'M', 'SUKABUMI', '2006-06-30', 0, 0, 'CEMARA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201026@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(40, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201027', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'HAIKAL ARDIANSYAH', 'M', 'SUKABUMI', '2006-02-09', 0, 0, 'KP CANGEHGAR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201027@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(41, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201031', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MAULA MUHAMAD HILDAN', 'M', 'SUKABUMI', '2005-11-08', 0, 0, 'kp Cinyocok', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201031@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(42, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201032', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MOCH BIMA MAULANA ALAMSYAH', 'M', 'SUKABUMI', '2006-04-18', 0, 0, 'KP SELAKOPI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201032@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(43, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201059', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MUHAMAD HAZIL ISMAIL', 'M', 'SUKABUMI', '2005-12-01', 0, 0, 'Kp. Babakan Rt. 011/007', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201059@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(44, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201035', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MUHAMAD RIFKI MAULANA', 'M', 'SUKABUMI', '2005-06-15', 0, 0, 'Kp.Simpang Empat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201035@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(45, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201029', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MUHAMMAD FAKIH ADZIKRI NURUL IMAN', 'M', 'SUKABUMI', '2005-09-08', 0, 0, 'Kp. Tonjong', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201029@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(46, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201033', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MUHAMMAD ILMAN ADITIAN', 'M', 'SUKABUMI', '2006-03-03', 0, 0, 'KP. CEMARA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201033@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(47, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201036', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MUHAMMAD WISNU', 'M', 'SUKABUMI', '2005-10-08', 0, 0, 'KP. CEMARA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201036@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(48, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201038', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NANDRI', 'M', 'SUKABUMI', '2005-05-17', 0, 0, 'Kp. Simpenan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201038@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(49, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201039', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NENG SILVA NURAZIZAH', 'F', 'SUKABUMI', '2005-02-06', 0, 0, 'Kp.Panyairan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201039@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(50, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201041', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PERA PERNANDA', 'F', 'SUKABUMI', '2006-11-04', 0, 0, 'Kp. Pamoyanan Rt. 02/17', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201041@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(51, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201043', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RAYSA NAFTA KAYLA', 'F', 'SUKABUMI', '2004-05-29', 0, 0, 'Kp Gumelar', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201043@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(52, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201045', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RENDI HERLANDI', 'M', 'SUKABUMI', '2005-03-17', 0, 0, 'Kp. Ciawun', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201045@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(53, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201047', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RIO ANGGARA SAPUTRA DEWA', 'M', 'SUKABUMI', '2005-07-26', 0, 0, 'jl.Patuguran', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201047@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(54, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201048', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RYAN ADEMA PUTRA', 'M', 'SUKABUMI', '2006-03-14', 0, 0, 'Kp. Cibeber Rt. 03/03 Desa Waluran Kec. Waluran', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201048@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(55, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201050', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SINDI SAPUTRI', 'F', 'DURI', '2006-01-24', 0, 0, 'Kp.Panyairan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201050@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(56, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201051', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SITI JENAB', 'F', 'SUKABUMI', '2006-04-14', 0, 0, 'Kp Ciranca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201051@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(57, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201052', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SITI SAIDAH', 'F', 'SUKABUMI', '2006-05-09', 0, 0, 'cipatuguran', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201052@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(58, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201054', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'SUSILAWATI', 'F', 'SUKABUMI', '2005-10-08', 0, 0, 'kp.cikored', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201054@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(59, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201062', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'WIRA SADEWA', 'M', 'SUKABUMI', '2006-08-19', 0, 0, 'Kp. Gandasoli', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201062@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(60, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201057', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'YOGI NOVALDI', 'M', 'SUKABUMI', '2005-11-08', 0, 0, 'Kp. Tegalega', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201057@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(61, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'true', 'false', 'false', 'false', NULL, NULL, '212201058', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ZHEERA FADILAH', 'F', 'SUKABUMI', '2006-01-27', 0, 0, 'Kp Benteng', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, '212201058@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, '2024-03-28 16:56:32', '2024-03-28 09:56:32', NULL, NULL, 1, 0, 0, 0, 'false'),
+(62, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201001', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ANGGI NUGRAHA', 'M', NULL, NULL, 0, 0, 'Kp Mekar Sari', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201001@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-16', NULL, '2024-03-28 17:16:52', '2024-03-28 10:16:52', NULL, NULL, 1, 0, 0, 0, 'false'),
+(63, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201002', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ROBI MAULANA', 'M', NULL, NULL, 0, 0, 'Kalimantan Barat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201002@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-17', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(64, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201003', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ASEP ABDUL RAHMAN', 'M', NULL, NULL, 0, 0, 'Jalan Surya Kencana, Gg H. Muhasim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201003@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-18', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(65, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201004', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MOH SINGGIH BUDI P', 'M', NULL, NULL, 0, 0, 'Palabuhan Ratu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201004@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-19', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(66, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201005', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MUHAMAD FAJAR HIDAYAT', 'M', NULL, NULL, 0, 0, 'Kp. Areman', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201005@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-20', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(67, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201006', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ARI SANDI', 'M', NULL, NULL, 0, 0, 'Subang Jaya', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201006@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-21', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(68, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201007', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NOVIANTI', 'F', NULL, NULL, 0, 0, 'Kp. Mariuk, Desa. Cidadap', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201007@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-22', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(69, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201008', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NURUL ANISA', 'F', NULL, NULL, 0, 0, 'Kp. Dayeuh Luhur,Desa. Cikakak', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201008@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-23', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(70, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201009', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'INDRIYANI YUSMAN', 'F', NULL, NULL, 0, 0, 'Kp. Mariuk,Desa. Cidadap', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201009@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-24', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(71, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201010', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'REKAS APRIANA', 'M', NULL, NULL, 0, 0, 'Palabuhanratu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201010@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-25', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(72, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201011', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ERIK HIDAYATULLAH', 'M', NULL, NULL, 0, 0, 'Joglo, Kembangan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201011@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-26', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(73, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201012', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DEDE SITI NUR AJIJAH', 'F', NULL, NULL, 0, 0, 'Kp .Cikadu, Desa. Cikadu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201012@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-27', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(74, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201013', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'APRIANI SAPITRI', 'F', NULL, NULL, 0, 0, 'Kp. Mekar Sari', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201013@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-28', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(75, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'PRINTIA LASTRI', 'F', NULL, NULL, 0, 0, 'Kp. Gebang, Ds. Sukaragam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201014@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-29', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(76, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201015', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'MESI MISNAWATI', 'F', NULL, NULL, 0, 0, 'Kp. Pasir Kolotok, Desa. Cikadu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201015@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-30', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(77, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201016', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'HELVIDA IQBAL LESTARI', 'F', NULL, NULL, 0, 0, 'Kp Kebontarum 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201016@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-05-31', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(78, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201017', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'DAMAR RIZKI', 'M', NULL, NULL, 0, 0, 'Karangpapak - Cisolok', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201017@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-06-01', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(79, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201018', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'RISKAWATI', 'F', NULL, NULL, 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201018@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-06-02', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(80, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'HAEDAR FANHAS', 'M', NULL, NULL, 0, 0, 'Kp Cipicung', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201019@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-06-03', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(81, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'AYI GUNAWAN', 'M', NULL, NULL, 0, 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201020@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-06-04', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false'),
+(82, 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, 'false', 'false', 'true', 'false', NULL, '2012-07-16', '201201021', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NOVI ALAWIAH', 'F', NULL, NULL, 0, 0, 'Kec.Joglo, Jakarta Barat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, '0', '201201021@smkdb.sch.id', NULL, NULL, NULL, NULL, NULL, 'WNI', NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 2, '2014-06-05', NULL, '2024-03-28 17:21:17', '2024-03-28 10:21:17', NULL, NULL, 1, 0, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -1171,7 +1373,7 @@ CREATE TABLE `subscribers` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1192,7 +1394,7 @@ CREATE TABLE `tags` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `tags`
@@ -1224,7 +1426,7 @@ CREATE TABLE `themes` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `themes`
@@ -1266,14 +1468,14 @@ CREATE TABLE `users` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `user_name`, `user_password`, `user_full_name`, `user_email`, `user_url`, `user_group_id`, `user_type`, `user_profile_id`, `user_biography`, `user_forgot_password_key`, `user_forgot_password_request_date`, `has_login`, `last_logged_in`, `ip_address`, `created_at`, `updated_at`, `deleted_at`, `restored_at`, `created_by`, `updated_by`, `deleted_by`, `restored_by`, `is_deleted`) VALUES
-(1, 'asep sukandar', '$2y$10$6jtRndlVjf7yTXeZy7kuZ.RLf2lYMsSiuYJ3uvclHRm573Yzd3MA.', 'Asep Sukandar', 'asepsukanda22@gmail.com', 'smkdb.sch.id', 0, 'super_user', NULL, '', NULL, NULL, 'true', '2024-03-28 04:33:01', '::1', '2023-01-15 21:23:22', '2024-03-28 03:36:42', NULL, NULL, 0, 1, 0, 0, 'false');
+(1, 'administrator', '$2y$10$DTE7GO8Y.E1.J.DnjuHEweet3ZrKgK1GscAoS27Qf9CKUflch0pG.', 'Asep Sukandar', 'asepsukanda22@gmail.com', 'smkdb.sch.id', 0, 'super_user', NULL, '', NULL, NULL, 'true', '2024-03-28 10:30:52', '::1', '2023-01-15 21:23:22', '2024-03-28 09:31:14', NULL, NULL, 0, 1, 0, 0, 'false');
 
 -- --------------------------------------------------------
 
@@ -1293,7 +1495,7 @@ CREATE TABLE `user_groups` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1314,7 +1516,7 @@ CREATE TABLE `user_privileges` (
   `deleted_by` bigint(20) DEFAULT 0,
   `restored_by` bigint(20) DEFAULT 0,
   `is_deleted` enum('true','false') DEFAULT 'false'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1327,14 +1529,15 @@ CREATE TABLE `_sessions` (
   `ip_address` varchar(45) NOT NULL,
   `timestamp` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `data` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `_sessions`
 --
 
 INSERT INTO `_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('8r3n5gpbdait92d6nne41466krfh4rrc', '::1', 1711604654, 0x5f5f63695f6c6173745f726567656e65726174657c693a313731313630343635343b746f6b656e7c733a33323a226234313263613362666139616632316335363936653962343739373235623066223b637372665f746f6b656e7c733a33323a226234313263613362666139616632316335363936653962343739373235623066223b736974655f6d61696e74656e616e63657c733a353a2266616c7365223b736974655f6d61696e74656e616e63655f656e645f646174657c733a31303a22323032322d30312d3031223b736974655f63616368657c733a353a2266616c7365223b736974655f63616368655f74696d657c733a323a223130223b6d6574615f6465736372697074696f6e7c733a3130363a22434d532053656b6f6c61686b75206164616c616820436f6e74656e74204d616e6167656d656e742053797374656d2064616e2050504442204f6e6c696e652067726174697320756e74756b20534420534d502f5365646572616a617420534d412f5365646572616a6174223b6d6574615f6b6579776f7264737c733a3338313a22434d532c20576562736974652053656b6f6c6168204772617469732c2043617261204d656d6275617420576562736974652053656b6f6c61682c206d656d62756174207765622073656b6f6c61682c20636f6e746f6820776562736974652073656b6f6c61682c20666974757220776562736974652073656b6f6c61682c2053656b6f6c61682c20576562736974652c20496e7465726e65742c53697475732c20434d532053656b6f6c61682c205765622053656b6f6c61682c20576562736974652053656b6f6c6168204772617469732c20576562736974652053656b6f6c61682c2041706c696b6173692053656b6f6c61682c2050504442204f6e6c696e652c20505342204f6e6c696e652c20505342204f6e6c696e65204772617469732c2050656e6572696d61616e2053697377612042617275204f6e6c696e652c205261706f7274204f6e6c696e652c204b7572696b756c756d20323031332c2053442c20534d502c20534d412c20416c697961682c204d54732c20534d4b223b6d61705f6c6f636174696f6e7c733a303a22223b66617669636f6e7c733a31313a2266617669636f6e2e706e67223b6865616465727c733a31303a226865616465722e706e67223b7265636170746368615f7374617475737c733a373a2264697361626c65223b7265636170746368615f736974655f6b65797c733a34303a22364c654e435441554141414141414454624c317244773847543144463244556a567445587a644d75223b7265636170746368615f7365637265745f6b65797c733a34303a22364c654e4354415541414141414771384f3049746b7a4738667341394b654a376d464d4d46463173223b74696d657a6f6e657c733a31323a22417369612f4a616b61727461223b66696c655f616c6c6f7765645f74797065737c733a31393a226a70672c206a7065672c20706e672c20676966223b75706c6f61645f6d61785f66696c6573697a657c733a313a2230223b7468756d626e61696c5f73697a655f6865696768747c733a333a22313030223b7468756d626e61696c5f73697a655f77696474687c733a333a22313530223b6d656469756d5f73697a655f6865696768747c733a333a22333038223b6d656469756d5f73697a655f77696474687c733a333a22343630223b6c617267655f73697a655f6865696768747c733a333a22363030223b6c617267655f73697a655f77696474687c733a333a22383030223b616c62756d5f636f7665725f6865696768747c733a333a22323530223b616c62756d5f636f7665725f77696474687c733a333a22343030223b62616e6e65725f6865696768747c733a323a223831223b62616e6e65725f77696474687c733a333a22323435223b696d6167655f736c696465725f6865696768747c733a333a22343030223b696d6167655f736c696465725f77696474687c733a333a22393030223b73747564656e745f70686f746f5f6865696768747c733a333a22343030223b73747564656e745f70686f746f5f77696474687c733a333a22333030223b656d706c6f7965655f70686f746f5f6865696768747c733a333a22343030223b656d706c6f7965655f70686f746f5f77696474687c733a333a22333030223b686561646d61737465725f70686f746f5f6865696768747c733a333a22343030223b686561646d61737465725f70686f746f5f77696474687c733a333a22333030223b6865616465725f6865696768747c733a323a223830223b6865616465725f77696474687c733a333a22323030223b6c6f676f5f6865696768747c733a333a22313230223b6c6f676f5f77696474687c733a333a22313230223b64656661756c745f706f73745f63617465676f72797c733a313a2231223b64656661756c745f706f73745f7374617475737c733a373a227075626c697368223b64656661756c745f706f73745f7669736962696c6974797c733a363a227075626c6963223b64656661756c745f706f73745f64697363757373696f6e7c733a343a226f70656e223b706f73745f696d6167655f7468756d626e61696c5f6865696768747c733a333a22313030223b706f73745f696d6167655f7468756d626e61696c5f77696474687c733a333a22313530223b706f73745f696d6167655f6d656469756d5f6865696768747c733a333a22323530223b706f73745f696d6167655f6d656469756d5f77696474687c733a333a22343030223b706f73745f696d6167655f6c617267655f6865696768747c733a333a22343530223b706f73745f696d6167655f6c617267655f77696474687c733a333a22383430223b706f73745f7065725f706167657c733a323a223130223b706f73745f7273735f636f756e747c733a323a223130223b706f73745f72656c617465645f636f756e747c733a323a223130223b636f6d6d656e745f7065725f706167657c733a323a223130223b636f6d6d656e745f6d6f6465726174696f6e7c733a353a2266616c7365223b636f6d6d656e745f726567697374726174696f6e7c733a353a2266616c7365223b636f6d6d656e745f626c61636b6c6973747c733a373a226b616d70726574223b636f6d6d656e745f6f726465727c733a333a22617363223b66616365626f6f6b7c733a31343a22534d4b20446f612042616e677361223b747769747465727c733a303a22223b6c696e6b65645f696e7c733a303a22223b796f75747562657c733a31343a22534d4b20444f412042414e475341223b696e7374616772616d7c733a31343a2240736d6b5f646f6162616e677361223b736d74705f706f72747c733a303a22223b6e70736e7c733a383a223639373236303632223b7363686f6f6c5f6e616d657c733a31343a22534d4b20446f612042616e677361223b686561646d61737465727c733a31393a224e616e64612050657264616e612c20532e5064223b686561646d61737465725f70686f746f7c733a32303a22686561646d61737465725f70686f746f2e706e67223b7363686f6f6c5f6c6576656c7c733a313a224d223b7363686f6f6c5f7374617475737c733a313a2232223b6f776e6572736869705f7374617475737c733a313a2231223b6465637265655f6f7065726174696e675f7065726d69747c733a32303a223432312e352f4b45502d3737352f44495344494b223b6465637265655f6f7065726174696e675f7065726d69745f646174657c733a31303a2230352d30372d32303132223b7461676c696e657c733a32313a224a756a75722e20496b686c61732e20416d616e6168223b72747c733a323a223132223b72777c733a323a223036223b7375625f76696c6c6167657c733a373a2243697465707573223b76696c6c6167657c733a373a2243697465707573223b7375625f64697374726963747c733a31333a2250616c61627568616e72617475223b64697374726963747c733a383a2253554b4142554d49223b706f7374616c5f636f64657c733a353a223435353631223b7374726565745f616464726573737c733a32373a224a616c616e2057522e205375707261746d616e2c204e6f2e333333223b70686f6e657c733a31303a2230323332313233343536223b6661787c733a31313a223032363636343436313530223b656d61696c7c733a32323a22736d6b646f6162616e67736140676d61696c2e636f6d223b776562736974657c733a32333a22687474703a2f2f7777772e736d6b64622e7363682e6964223b6c6f676f7c733a33373a2265353366666461323236623163383961613463383730353631376365353064362e6a706567223b61646d697373696f6e5f7374617475737c733a343a226f70656e223b61646d697373696f6e5f796561727c733a343a2232303234223b61646d697373696f6e5f73746172745f646174657c733a31303a22323032342d30322d3031223b61646d697373696f6e5f656e645f646174657c733a31303a22323032342d30372d3135223b616e6e6f756e63656d656e745f73746172745f646174657c733a31303a22323032342d30352d3031223b616e6e6f756e63656d656e745f656e645f646174657c733a31303a22323032342d30352d3136223b5f61636164656d69635f796561727c733a31353a22546168756e2050656c616a6172616e223b5f73747564656e747c733a31333a225065736572746120446964696b223b5f6964656e746974795f6e756d6265727c733a333a224e4953223b5f656d706c6f7965657c733a333a2247544b223b5f5f656d706c6f7965657c733a32383a22477572752064616e2054656e616761204b6570656e646964696b616e223b5f7375626a6563747c733a31343a224d6174612050656c616a6172616e223b5f61646d697373696f6e7c733a343a2250504442223b5f6d616a6f727c733a373a224a75727573616e223b5f686561646d61737465727c733a31343a224b6570616c612053656b6f6c6168223b7468656d657c733a393a22736b795f6c69676874223b6d616a6f725f636f756e747c623a303b757365725f69647c733a313a2231223b757365725f6e616d657c733a31333a2261646d696e6973747261746f72223b757365725f656d61696c7c733a32333a226173657073756b616e6461323240676d61696c2e636f6d223b757365725f747970657c733a31303a2273757065725f75736572223b757365725f70726f66696c655f69647c4e3b6861735f6c6f67696e7c623a313b757365725f70726976696c656765737c613a31343a7b693a303b733a393a2264617368626f617264223b693a313b733a31353a226368616e67655f70617373776f7264223b693a323b733a31313a226d61696e74656e616e6365223b693a333b733a353a227573657273223b693a343b733a393a2261646d697373696f6e223b693a353b733a31303a22617070656172616e6365223b693a363b733a343a22626c6f67223b693a373b733a393a22656d706c6f79656573223b693a383b733a353a226d65646961223b693a393b733a373a22706c7567696e73223b693a31303b733a393a227265666572656e6365223b693a31313b733a383a2273657474696e6773223b693a31323b733a383a2261636164656d6963223b693a31333b733a373a2270726f66696c65223b7d736d74705f686f73747c733a303a22223b736d74705f757365727c733a303a22223b736d74705f706173737c733a303a22223b);
+('mfedbmski81s62dtqcjihu36ccqtstn0', '::1', 1711618188, 0x5f5f63695f6c6173745f726567656e65726174657c693a313731313631383132343b736974655f6d61696e74656e616e63657c733a353a2266616c7365223b736974655f6d61696e74656e616e63655f656e645f646174657c733a31303a22323032322d30312d3031223b736974655f63616368657c733a353a2266616c7365223b736974655f63616368655f74696d657c733a323a223130223b6d6574615f6465736372697074696f6e7c733a3130363a22434d532053656b6f6c61686b75206164616c616820436f6e74656e74204d616e6167656d656e742053797374656d2064616e2050504442204f6e6c696e652067726174697320756e74756b20534420534d502f5365646572616a617420534d412f5365646572616a6174223b6d6574615f6b6579776f7264737c733a3338313a22434d532c20576562736974652053656b6f6c6168204772617469732c2043617261204d656d6275617420576562736974652053656b6f6c61682c206d656d62756174207765622073656b6f6c61682c20636f6e746f6820776562736974652073656b6f6c61682c20666974757220776562736974652073656b6f6c61682c2053656b6f6c61682c20576562736974652c20496e7465726e65742c53697475732c20434d532053656b6f6c61682c205765622053656b6f6c61682c20576562736974652053656b6f6c6168204772617469732c20576562736974652053656b6f6c61682c2041706c696b6173692053656b6f6c61682c2050504442204f6e6c696e652c20505342204f6e6c696e652c20505342204f6e6c696e65204772617469732c2050656e6572696d61616e2053697377612042617275204f6e6c696e652c205261706f7274204f6e6c696e652c204b7572696b756c756d20323031332c2053442c20534d502c20534d412c20416c697961682c204d54732c20534d4b223b6d61705f6c6f636174696f6e7c733a303a22223b66617669636f6e7c733a31313a2266617669636f6e2e706e67223b6865616465727c733a31303a226865616465722e706e67223b7265636170746368615f7374617475737c733a373a2264697361626c65223b7265636170746368615f736974655f6b65797c733a34303a22364c654e435441554141414141414454624c317244773847543144463244556a567445587a644d75223b7265636170746368615f7365637265745f6b65797c733a34303a22364c654e4354415541414141414771384f3049746b7a4738667341394b654a376d464d4d46463173223b74696d657a6f6e657c733a31323a22417369612f4a616b61727461223b66696c655f616c6c6f7765645f74797065737c733a31393a226a70672c206a7065672c20706e672c20676966223b75706c6f61645f6d61785f66696c6573697a657c733a313a2230223b7468756d626e61696c5f73697a655f6865696768747c733a333a22313030223b7468756d626e61696c5f73697a655f77696474687c733a333a22313530223b6d656469756d5f73697a655f6865696768747c733a333a22333038223b6d656469756d5f73697a655f77696474687c733a333a22343630223b6c617267655f73697a655f6865696768747c733a333a22363030223b6c617267655f73697a655f77696474687c733a333a22383030223b616c62756d5f636f7665725f6865696768747c733a333a22323530223b616c62756d5f636f7665725f77696474687c733a333a22343030223b62616e6e65725f6865696768747c733a323a223831223b62616e6e65725f77696474687c733a333a22323435223b696d6167655f736c696465725f6865696768747c733a333a22343030223b696d6167655f736c696465725f77696474687c733a333a22393030223b73747564656e745f70686f746f5f6865696768747c733a333a22343030223b73747564656e745f70686f746f5f77696474687c733a333a22333030223b656d706c6f7965655f70686f746f5f6865696768747c733a333a22343030223b656d706c6f7965655f70686f746f5f77696474687c733a333a22333030223b686561646d61737465725f70686f746f5f6865696768747c733a333a22343030223b686561646d61737465725f70686f746f5f77696474687c733a333a22333030223b6865616465725f6865696768747c733a323a223830223b6865616465725f77696474687c733a333a22323030223b6c6f676f5f6865696768747c733a333a22313230223b6c6f676f5f77696474687c733a333a22313230223b64656661756c745f706f73745f63617465676f72797c733a313a2231223b64656661756c745f706f73745f7374617475737c733a373a227075626c697368223b64656661756c745f706f73745f7669736962696c6974797c733a363a227075626c6963223b64656661756c745f706f73745f64697363757373696f6e7c733a343a226f70656e223b706f73745f696d6167655f7468756d626e61696c5f6865696768747c733a333a22313030223b706f73745f696d6167655f7468756d626e61696c5f77696474687c733a333a22313530223b706f73745f696d6167655f6d656469756d5f6865696768747c733a333a22323530223b706f73745f696d6167655f6d656469756d5f77696474687c733a333a22343030223b706f73745f696d6167655f6c617267655f6865696768747c733a333a22343530223b706f73745f696d6167655f6c617267655f77696474687c733a333a22383430223b706f73745f7065725f706167657c733a323a223130223b706f73745f7273735f636f756e747c733a323a223130223b706f73745f72656c617465645f636f756e747c733a323a223130223b636f6d6d656e745f7065725f706167657c733a323a223130223b636f6d6d656e745f6d6f6465726174696f6e7c733a353a2266616c7365223b636f6d6d656e745f726567697374726174696f6e7c733a353a2266616c7365223b636f6d6d656e745f626c61636b6c6973747c733a373a226b616d70726574223b636f6d6d656e745f6f726465727c733a333a22617363223b66616365626f6f6b7c733a31343a22534d4b20446f612042616e677361223b747769747465727c733a303a22223b6c696e6b65645f696e7c733a303a22223b796f75747562657c733a31343a22534d4b20444f412042414e475341223b696e7374616772616d7c733a31343a2240736d6b5f646f6162616e677361223b736d74705f706f72747c733a303a22223b6e70736e7c733a383a223639373236303632223b7363686f6f6c5f6e616d657c733a31343a22534d4b20446f612042616e677361223b686561646d61737465727c733a31393a224e616e64612050657264616e612c20532e5064223b686561646d61737465725f70686f746f7c733a32303a22686561646d61737465725f70686f746f2e706e67223b7363686f6f6c5f6c6576656c7c733a313a224d223b7363686f6f6c5f7374617475737c733a313a2232223b6f776e6572736869705f7374617475737c733a313a2231223b6465637265655f6f7065726174696e675f7065726d69747c733a32303a223432312e352f4b45502d3737352f44495344494b223b6465637265655f6f7065726174696e675f7065726d69745f646174657c733a31303a2230352d30372d32303132223b7461676c696e657c733a32313a224a756a75722e20496b686c61732e20416d616e6168223b72747c733a323a223132223b72777c733a323a223036223b7375625f76696c6c6167657c733a373a2243697465707573223b76696c6c6167657c733a373a2243697465707573223b7375625f64697374726963747c733a31333a2250616c61627568616e72617475223b64697374726963747c733a383a2253554b4142554d49223b706f7374616c5f636f64657c733a353a223435353631223b7374726565745f616464726573737c733a32373a224a616c616e2057522e205375707261746d616e2c204e6f2e333333223b70686f6e657c733a31303a2230323332313233343536223b6661787c733a31313a223032363636343436313530223b656d61696c7c733a32323a22736d6b646f6162616e67736140676d61696c2e636f6d223b776562736974657c733a32333a22687474703a2f2f7777772e736d6b64622e7363682e6964223b6c6f676f7c733a33373a2265353366666461323236623163383961613463383730353631376365353064362e6a706567223b61646d697373696f6e5f7374617475737c733a343a226f70656e223b61646d697373696f6e5f796561727c733a343a2232303234223b61646d697373696f6e5f73746172745f646174657c733a31303a22323032342d30322d3031223b61646d697373696f6e5f656e645f646174657c733a31303a22323032342d30372d3135223b616e6e6f756e63656d656e745f73746172745f646174657c733a31303a22323032342d30352d3031223b616e6e6f756e63656d656e745f656e645f646174657c733a31303a22323032342d30352d3136223b5f61636164656d69635f796561727c733a31353a22546168756e2050656c616a6172616e223b5f73747564656e747c733a31333a225065736572746120446964696b223b5f6964656e746974795f6e756d6265727c733a333a224e4953223b5f656d706c6f7965657c733a333a2247544b223b5f5f656d706c6f7965657c733a32383a22477572752064616e2054656e616761204b6570656e646964696b616e223b5f7375626a6563747c733a31343a224d6174612050656c616a6172616e223b5f61646d697373696f6e7c733a343a2250504442223b5f6d616a6f727c733a373a224a75727573616e223b5f686561646d61737465727c733a31343a224b6570616c612053656b6f6c6168223b7468656d657c733a393a22736b795f6c69676874223b6d616a6f725f636f756e747c623a303b757365725f69647c733a313a2231223b757365725f6e616d657c733a31333a2261646d696e6973747261746f72223b757365725f656d61696c7c733a32333a226173657073756b616e6461323240676d61696c2e636f6d223b757365725f747970657c733a31303a2273757065725f75736572223b757365725f70726f66696c655f69647c4e3b6861735f6c6f67696e7c623a313b757365725f70726976696c656765737c613a31343a7b693a303b733a393a2264617368626f617264223b693a313b733a31353a226368616e67655f70617373776f7264223b693a323b733a31313a226d61696e74656e616e6365223b693a333b733a353a227573657273223b693a343b733a393a2261646d697373696f6e223b693a353b733a31303a22617070656172616e6365223b693a363b733a343a22626c6f67223b693a373b733a393a22656d706c6f79656573223b693a383b733a353a226d65646961223b693a393b733a373a22706c7567696e73223b693a31303b733a393a227265666572656e6365223b693a31313b733a383a2273657474696e6773223b693a31323b733a383a2261636164656d6963223b693a31333b733a373a2270726f66696c65223b7d736d74705f686f73747c733a303a22223b736d74705f757365727c733a303a22223b736d74705f706173737c733a303a22223b746f6b656e7c733a33323a223934343466323931643664383765313230346162363831366261626135393266223b637372665f746f6b656e7c733a33323a223934343466323931643664383765313230346162363831366261626135393266223b),
+('9pvvdpo4qmeivve5mhsp6u4foa8ek3di', '::1', 1711621359, 0x5f5f63695f6c6173745f726567656e65726174657c693a313731313632313332313b746f6b656e7c733a33323a223835643137323361363038306634313066396136303133393033376562346331223b637372665f746f6b656e7c733a33323a223835643137323361363038306634313066396136303133393033376562346331223b736974655f6d61696e74656e616e63657c733a353a2266616c7365223b736974655f6d61696e74656e616e63655f656e645f646174657c733a31303a22323032322d30312d3031223b736974655f63616368657c733a353a2266616c7365223b736974655f63616368655f74696d657c733a323a223130223b6d6574615f6465736372697074696f6e7c733a3130363a22434d532053656b6f6c61686b75206164616c616820436f6e74656e74204d616e6167656d656e742053797374656d2064616e2050504442204f6e6c696e652067726174697320756e74756b20534420534d502f5365646572616a617420534d412f5365646572616a6174223b6d6574615f6b6579776f7264737c733a3338313a22434d532c20576562736974652053656b6f6c6168204772617469732c2043617261204d656d6275617420576562736974652053656b6f6c61682c206d656d62756174207765622073656b6f6c61682c20636f6e746f6820776562736974652073656b6f6c61682c20666974757220776562736974652073656b6f6c61682c2053656b6f6c61682c20576562736974652c20496e7465726e65742c53697475732c20434d532053656b6f6c61682c205765622053656b6f6c61682c20576562736974652053656b6f6c6168204772617469732c20576562736974652053656b6f6c61682c2041706c696b6173692053656b6f6c61682c2050504442204f6e6c696e652c20505342204f6e6c696e652c20505342204f6e6c696e65204772617469732c2050656e6572696d61616e2053697377612042617275204f6e6c696e652c205261706f7274204f6e6c696e652c204b7572696b756c756d20323031332c2053442c20534d502c20534d412c20416c697961682c204d54732c20534d4b223b6d61705f6c6f636174696f6e7c733a303a22223b66617669636f6e7c733a31313a2266617669636f6e2e706e67223b6865616465727c733a31303a226865616465722e706e67223b7265636170746368615f7374617475737c733a373a2264697361626c65223b7265636170746368615f736974655f6b65797c733a34303a22364c654e435441554141414141414454624c317244773847543144463244556a567445587a644d75223b7265636170746368615f7365637265745f6b65797c733a34303a22364c654e4354415541414141414771384f3049746b7a4738667341394b654a376d464d4d46463173223b74696d657a6f6e657c733a31323a22417369612f4a616b61727461223b66696c655f616c6c6f7765645f74797065737c733a31393a226a70672c206a7065672c20706e672c20676966223b75706c6f61645f6d61785f66696c6573697a657c733a313a2230223b7468756d626e61696c5f73697a655f6865696768747c733a333a22313030223b7468756d626e61696c5f73697a655f77696474687c733a333a22313530223b6d656469756d5f73697a655f6865696768747c733a333a22333038223b6d656469756d5f73697a655f77696474687c733a333a22343630223b6c617267655f73697a655f6865696768747c733a333a22363030223b6c617267655f73697a655f77696474687c733a333a22383030223b616c62756d5f636f7665725f6865696768747c733a333a22323530223b616c62756d5f636f7665725f77696474687c733a333a22343030223b62616e6e65725f6865696768747c733a323a223831223b62616e6e65725f77696474687c733a333a22323435223b696d6167655f736c696465725f6865696768747c733a333a22343030223b696d6167655f736c696465725f77696474687c733a333a22393030223b73747564656e745f70686f746f5f6865696768747c733a333a22343030223b73747564656e745f70686f746f5f77696474687c733a333a22333030223b656d706c6f7965655f70686f746f5f6865696768747c733a333a22343030223b656d706c6f7965655f70686f746f5f77696474687c733a333a22333030223b686561646d61737465725f70686f746f5f6865696768747c733a333a22343030223b686561646d61737465725f70686f746f5f77696474687c733a333a22333030223b6865616465725f6865696768747c733a323a223830223b6865616465725f77696474687c733a333a22323030223b6c6f676f5f6865696768747c733a333a22313230223b6c6f676f5f77696474687c733a333a22313230223b64656661756c745f706f73745f63617465676f72797c733a313a2231223b64656661756c745f706f73745f7374617475737c733a373a227075626c697368223b64656661756c745f706f73745f7669736962696c6974797c733a363a227075626c6963223b64656661756c745f706f73745f64697363757373696f6e7c733a343a226f70656e223b706f73745f696d6167655f7468756d626e61696c5f6865696768747c733a333a22313030223b706f73745f696d6167655f7468756d626e61696c5f77696474687c733a333a22313530223b706f73745f696d6167655f6d656469756d5f6865696768747c733a333a22323530223b706f73745f696d6167655f6d656469756d5f77696474687c733a333a22343030223b706f73745f696d6167655f6c617267655f6865696768747c733a333a22343530223b706f73745f696d6167655f6c617267655f77696474687c733a333a22383430223b706f73745f7065725f706167657c733a323a223130223b706f73745f7273735f636f756e747c733a323a223130223b706f73745f72656c617465645f636f756e747c733a323a223130223b636f6d6d656e745f7065725f706167657c733a323a223130223b636f6d6d656e745f6d6f6465726174696f6e7c733a353a2266616c7365223b636f6d6d656e745f726567697374726174696f6e7c733a353a2266616c7365223b636f6d6d656e745f626c61636b6c6973747c733a373a226b616d70726574223b636f6d6d656e745f6f726465727c733a333a22617363223b66616365626f6f6b7c733a34383a2268747470733a2f2f7777772e66616365626f6f6b2e636f6d2f736d6b646238323f6d696265787469643d5a62574b774c223b747769747465727c733a303a22223b6c696e6b65645f696e7c733a303a22223b796f75747562657c733a35373a2268747470733a2f2f796f75747562652e636f6d2f40736d6b646f6162616e677361353832383f73693d4f7972336d57376a53626f3238465051223b696e7374616772616d7c733a36313a2268747470733a2f2f7777772e696e7374616772616d2e636f6d2f736d6b5f646f6162616e6773613f696773683d4d6a566f4e584670623270734d486c73223b736d74705f706f72747c733a303a22223b6e70736e7c733a383a223639373236303632223b7363686f6f6c5f6e616d657c733a31343a22534d4b20446f612042616e677361223b686561646d61737465727c733a31393a224e616e64612050657264616e612c20532e5064223b686561646d61737465725f70686f746f7c733a33363a2234343434306336333639636638663438646439616661616366613562656162342e706e67223b7363686f6f6c5f6c6576656c7c733a313a224d223b7363686f6f6c5f7374617475737c733a313a2232223b6f776e6572736869705f7374617475737c733a313a2231223b6465637265655f6f7065726174696e675f7065726d69747c733a32303a223432312e352f4b45502d3737352f44495344494b223b6465637265655f6f7065726174696e675f7065726d69745f646174657c733a31303a2230352d30372d32303132223b7461676c696e657c733a32313a224a554a55522e20494b484c41532e20414d414e4148223b72747c733a323a223132223b72777c733a323a223036223b7375625f76696c6c6167657c733a373a2243697465707573223b76696c6c6167657c733a373a2243697465707573223b7375625f64697374726963747c733a31333a2250616c61627568616e72617475223b64697374726963747c733a383a2253554b4142554d49223b706f7374616c5f636f64657c733a353a223435353631223b7374726565745f616464726573737c733a32373a224a616c616e2057522e205375707261746d616e2c204e6f2e333333223b70686f6e657c733a31303a2230323332313233343536223b6661787c733a31313a223032363636343436313530223b656d61696c7c733a32323a22736d6b646f6162616e67736140676d61696c2e636f6d223b776562736974657c733a32333a22687474703a2f2f7777772e736d6b64622e7363682e6964223b6c6f676f7c733a33363a2230636136363065626535313631616636386531343139363932353863326230652e706e67223b61646d697373696f6e5f7374617475737c733a343a226f70656e223b61646d697373696f6e5f796561727c733a343a2232303234223b61646d697373696f6e5f73746172745f646174657c733a31303a22323032342d30322d3031223b61646d697373696f6e5f656e645f646174657c733a31303a22323032342d30372d3135223b616e6e6f756e63656d656e745f73746172745f646174657c733a31303a22323032342d30352d3031223b616e6e6f756e63656d656e745f656e645f646174657c733a31303a22323032342d30352d3136223b5f61636164656d69635f796561727c733a31353a22546168756e2050656c616a6172616e223b5f73747564656e747c733a31333a225065736572746120446964696b223b5f6964656e746974795f6e756d6265727c733a333a224e4953223b5f656d706c6f7965657c733a333a2247544b223b5f5f656d706c6f7965657c733a32383a22477572752064616e2054656e616761204b6570656e646964696b616e223b5f7375626a6563747c733a31343a224d6174612050656c616a6172616e223b5f61646d697373696f6e7c733a343a2250504442223b5f6d616a6f727c733a373a224a75727573616e223b5f686561646d61737465727c733a31343a224b6570616c612053656b6f6c6168223b7468656d657c733a393a22736b795f6c69676874223b6d616a6f725f636f756e747c623a313b757365725f69647c733a313a2231223b757365725f6e616d657c733a31333a2261646d696e6973747261746f72223b757365725f656d61696c7c733a32333a226173657073756b616e6461323240676d61696c2e636f6d223b757365725f747970657c733a31303a2273757065725f75736572223b757365725f70726f66696c655f69647c4e3b6861735f6c6f67696e7c623a313b757365725f70726976696c656765737c613a31343a7b693a303b733a393a2264617368626f617264223b693a313b733a31353a226368616e67655f70617373776f7264223b693a323b733a31313a226d61696e74656e616e6365223b693a333b733a353a227573657273223b693a343b733a393a2261646d697373696f6e223b693a353b733a31303a22617070656172616e6365223b693a363b733a343a22626c6f67223b693a373b733a393a22656d706c6f79656573223b693a383b733a353a226d65646961223b693a393b733a373a22706c7567696e73223b693a31303b733a393a227265666572656e6365223b693a31313b733a383a2273657474696e6773223b693a31323b733a383a2261636164656d6963223b693a31333b733a373a2270726f66696c65223b7d736d74705f686f73747c733a303a22223b736d74705f757365727c733a303a22223b736d74705f706173737c733a303a22223b61646d697373696f6e5f73656d65737465725f69647c733a313a2231223b61646d697373696f6e5f73656d65737465727c733a393a22323032342d32303235223b63757272656e745f61636164656d69635f796561725f69647c733a313a2231223b63757272656e745f61636164656d69635f796561727c733a393a22323032342d32303235223b63757272656e745f61636164656d69635f73656d65737465727c733a333a226f6464223b);
 
 --
 -- Indexes for dumped tables
@@ -1625,7 +1828,7 @@ ALTER TABLE `_sessions`
 -- AUTO_INCREMENT untuk tabel `academic_years`
 --
 ALTER TABLE `academic_years`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `achievements`
@@ -1667,19 +1870,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT untuk tabel `class_groups`
 --
 ALTER TABLE `class_groups`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `class_group_settings`
 --
 ALTER TABLE `class_group_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `class_group_students`
 --
 ALTER TABLE `class_group_students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT untuk tabel `comments`
@@ -1691,7 +1894,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT untuk tabel `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `files`
@@ -1715,19 +1918,19 @@ ALTER TABLE `links`
 -- AUTO_INCREMENT untuk tabel `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `majors`
 --
 ALTER TABLE `majors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `modules`
@@ -1787,7 +1990,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT untuk tabel `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT untuk tabel `subscribers`
