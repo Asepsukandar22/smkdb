@@ -1,0 +1,2 @@
+# smkdb
+Web sekolah
